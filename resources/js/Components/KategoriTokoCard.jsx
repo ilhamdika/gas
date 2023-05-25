@@ -1,7 +1,6 @@
 export default function KategoriTokoCard ({thumbnail, title, deskripsi}){
     return (
-        <div
-  className=" w-30 mr-5 ml-5 max-w-20">
+        <div className=" w-30 mr-5 ml-5 max-w-20">
   <div
     className="relative overflow-hidden bg-cover bg-no-repeat"
     data-te-ripple-init

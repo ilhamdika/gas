@@ -39,7 +39,7 @@ export default function Index () {
             <div className='mt-10'>
                 <h1 className='text-center text-5xl font-black'>Popular Fitur</h1>
                 <p className='text-center text-1xl mt-1' >Nikmati beberapa fitur yang kami berikan</p>
-                <div className='flex justify-center h-screen mt-20 max-h-60'>
+                <div className='grid grid-cols-4 mr-15 ml-20'>
                     {[1,2,3,4].map((i)=>(
                     <PopularFitur 
                     key={i}
@@ -64,24 +64,19 @@ export default function Index () {
                         ))}
                 </div>
                 <div class="flex items-center justify-center">
-                <Link>
+                <Link href={route('prototype.toko')}>
                     <PrimaryButton>More</PrimaryButton>
                 </Link>
                 </div>
             </div>
 
-            <div className='mt-10'>
-                <h1 className='text-center text-5xl font-black'>Kategori Toko</h1>
+            <div className='mt-20'>
+                <h1 className='text-center text-5xl font-black'>Fitur Maps</h1>
                 <p className='text-center text-1xl mt-1' >Apapun jenis tokomu dapat bergabung dengan Gas</p>
                 <div className='flex justify-center h-screen mt-20 '>
                     
                     <img src='/images/maps.png' className='w-full h-auto pr-20 pl-20 h-30' />
                 </div>
-            </div>
-
-            <div className='mt-10'>
-                <h1 className='text-center text-5xl font-black'>Kategori Toko</h1>
-                <p className='text-center text-1xl mt-1' >Apapun jenis tokomu dapat bergabung dengan Gas</p>
             </div>
 
             <Banner1 />
