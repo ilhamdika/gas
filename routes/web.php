@@ -42,4 +42,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('prototype')->name('prototype.')->group(function () {
+    route::get('/index', function () {
+        return Inertia::render('Prototype/Index');
+    })->name('index');
+    route::get('/toko', function () {
+        return Inertia::render('Prototype/Toko');
+    })->name('toko');
+});
+
 require __DIR__ . '/auth.php';
