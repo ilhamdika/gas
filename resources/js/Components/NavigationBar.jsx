@@ -18,7 +18,7 @@ export default function NavigationBar () {
 						</button>
 					</div>
 					<ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-						<li><Link className="text-xl text-black hover:text-gray-500" href={route('prototype.index')}>Beranda</Link></li>
+						<li><Link className="text-xl text-black hover:text-gray-500" href={route('index')}>Beranda</Link></li>
 						<li className="text-gray-300">
 							
 						</li>
