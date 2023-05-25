@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Fitur;
 use App\Models\JenisToko;
+use App\Models\Karir;
 
 class LandingController extends Controller
 {
@@ -14,11 +15,13 @@ class LandingController extends Controller
     {
         $fitur = Fitur::all();
         $jenisToko = JenisToko::all();
+        $karir = Karir::all();
 
 
         return Inertia::render('User/Index', [
             'fiturs' => $fitur,
-            'jenisTokos' => $jenisToko
+            'jenisTokos' => $jenisToko,
+            'karirs' => $karir
         ]);
     }
 
@@ -28,6 +31,15 @@ class LandingController extends Controller
 
         return Inertia::render('User/Toko', [
             'jenisTokos' => $jenisToko
+        ]);
+    }
+
+    public function karir()
+    {
+        $karir = Karir::all();
+
+        return Inertia::render('User/Karir', [
+            'karirs' => $karir
         ]);
     }
 }

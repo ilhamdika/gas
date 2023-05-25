@@ -7,10 +7,11 @@ import NavigationBar from '@/Components/NavigationBar';
 import PopularFitur from '@/Components/PopularFitur';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Link } from '@inertiajs/react';
-export default function Index ({fiturs, jenisTokos}) {
+export default function Index ({fiturs, jenisTokos, karirs}) {
     const limit = 4;
 
     const jenisTokoLoop = jenisTokos.slice(0, limit);
+    const karirLoop = karirs.slice(0, limit);
     return (
         <>
         
@@ -109,15 +110,21 @@ export default function Index ({fiturs, jenisTokos}) {
                 <p className='text-center text-1xl mt-1' >Mari bergabung bersama kami,</p>
                 <p className='text-center text-1xl mt-1' >Jadilah bagian dari kami dan kembangkan bakat, ide kreatifmu dalam GAS</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mr-20 ml-20 mt-10">
-                    {[1,2,3,4].map((i)=>(
+                    {karirLoop.map((karir)=>(
 
                     <CardKarir 
-                    key={i}
-                    thumbnail={'/images/karir1.png'}
-                    deskripsi={'loremasdfuhgaopifgsapifgasp9fig'}
+                    key={karir.id}
+                    name={karir.name}
+                    thumbnail={karir.thumbnail}
+                    deskripsi={karir.deskripsi}
                     />
                     ))}
                     
+                </div>
+                <div class="flex items-center justify-center mb-10">
+                <Link href={route('karir')}>
+                    <PrimaryButton>More</PrimaryButton>
+                </Link>
                 </div>
             </div>
             

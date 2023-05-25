@@ -35,6 +35,7 @@ use Inertia\Inertia;
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/toko', [LandingController::class, 'toko'])->name('toko');
+Route::get('/karir', [LandingController::class, 'karir'])->name('karir');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
