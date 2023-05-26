@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use App\Http\Requests\FiturRequest;
 use App\Http\Requests\FiturStore;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\FiturEdit;
 
 class FiturController extends Controller
 {
@@ -19,7 +20,11 @@ class FiturController extends Controller
      */
     public function index()
     {
-        return Inertia('Admin/Fitur');
+        $fiturs = Fitur::all();
+
+        return Inertia('Admin/Fitur/Fitur', [
+            'fiturs' => $fiturs
+        ]);
     }
 
     /**
@@ -29,7 +34,7 @@ class FiturController extends Controller
      */
     public function create()
     {
-        return Inertia('Admin/FiturCreate');
+        return Inertia('Admin/Fitur/FiturCreate');
     }
 
     /**
@@ -69,7 +74,9 @@ class FiturController extends Controller
      */
     public function edit(Fitur $fitur)
     {
-        //
+        return Inertia('Admin/Fitur/FiturEdit', [
+            'fitur' => $fitur
+        ]);
     }
 
     /**
@@ -79,9 +86,23 @@ class FiturController extends Controller
      * @param  \App\Models\Fitur  $fitur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fitur $fitur)
+    public function update(FiturEdit $request, Fitur $fitur)
     {
-        //
+
+        $data = $request->validated();
+        if ($request->file('thumbnail')) {
+            $data['thumbnail'] = Storage::disk('public')->put('fitur', $request->file('thumbnail'));
+            Storage::disk('public')->delete($fitur->thumbnail);
+        } else {
+            $data['thumbnail'] = $fitur->thumbnail;
+        }
+
+        $fitur->update($data);
+
+        return redirect(route('admin.dashboard.fitur.index'))->with([
+            'message' => 'Fitur berhasil ditambahkan',
+            'status' => 'success'
+        ]);
     }
 
     /**
@@ -92,6 +113,10 @@ class FiturController extends Controller
      */
     public function destroy(Fitur $fitur)
     {
-        //
+        $fitur->delete();
+        return redirect(route('admin.dashboard.fitur.index'))->with([
+            'message' => 'Comic deleted successfully',
+            'type' => 'success'
+        ]);
     }
 }

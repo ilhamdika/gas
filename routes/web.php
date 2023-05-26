@@ -35,15 +35,15 @@ use App\Http\Controllers\Admin\KarirController;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+Route::get('/login', function () {
+    return Inertia::render('Auth/Login');
+})->name('login');
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/toko', [LandingController::class, 'toko'])->name('toko');
 Route::get('/karir', [LandingController::class, 'karir'])->name('karir');
 Route::get('fitur', [LandingController::class, 'fitur'])->name('fitur');
 
-Route::get('/login', function () {
-    return Inertia::render('Auth/Login');
-})->name('login');
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
     Route::resource('fitur', AdminFiturController::class);

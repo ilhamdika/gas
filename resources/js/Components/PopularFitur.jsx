@@ -11,8 +11,9 @@ export default function PopularFitur ({thumbnail, title}){
             <a href="#!">
             <img
             className="w-30"
-            src={thumbnail}
+            src={`/storage/${thumbnail}`}
             alt="" />
+            
         </a>
             <div className="p-6">
                 <h5
