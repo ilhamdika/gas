@@ -42,4 +42,13 @@ class LandingController extends Controller
             'karirs' => $karir
         ]);
     }
+
+    public function fitur()
+    {
+        $fitur = Fitur::all();
+
+        return Inertia::render('User/Fitur', [
+            'fiturs' => $fitur
+        ]);
+    }
 }

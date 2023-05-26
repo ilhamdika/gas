@@ -36,7 +36,7 @@ export default function NavigationBar () {
 						</li>
 						<li><Link className="text-xl text-black hover:text-gray-500" href="#">Karir</Link></li>
 					</ul>
-					<Link className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign In</Link>
+					<Link className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href={route('login')}>Sign In</Link>
 					<Link className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-2xl transition duration-200" href="#">
 						<img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" className="w-5"/>
 					</Link>

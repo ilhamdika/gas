@@ -52,6 +52,11 @@ export default function Index ({fiturs, jenisTokos, karirs}) {
                     />
                     ))}
                 </div>
+                <div class="flex items-center justify-center">
+                <Link href={route('fitur')}>
+                    <PrimaryButton>More</PrimaryButton>
+                </Link>
+                </div>
             </div>
 
             <div className='mt-10'>
