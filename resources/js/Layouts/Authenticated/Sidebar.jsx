@@ -1,5 +1,6 @@
 import PrimaryButton from "@/Components/PrimaryButton"
 import { Link } from "@inertiajs/react"
+import Dropdown from '@/Components/Dropdown';
 
 export default function Sidebar (){
     return (
@@ -54,12 +55,10 @@ export default function Sidebar (){
 				</Link>
 			</li>
 			<li>
-			<Link href={route('logout')} 
-                method="post"
-                className="mt-11"
-				as="button">
-                    Log Out
-                </Link>
+            <Link href={route('logout')} method="post" as="button">
+                Log Out
+            </Link>
+                                    
 			</li>
 		</ul>
 	</section>
