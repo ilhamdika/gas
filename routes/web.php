@@ -5,6 +5,9 @@ use App\Http\Controllers\User\LandingController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Admin\FiturController as AdminFiturController;
+use App\Http\Controllers\Admin\JenisTokoController;
+use App\Http\Controllers\Admin\KarirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,15 +35,21 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+Route::get('/login', function () {
+    return Inertia::render('Auth/Login');
+})->name('login');
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/toko', [LandingController::class, 'toko'])->name('toko');
 Route::get('/karir', [LandingController::class, 'karir'])->name('karir');
 Route::get('fitur', [LandingController::class, 'fitur'])->name('fitur');
 
-Route::get('/login', function () {
-    return Inertia::render('Auth/Login');
-})->name('login');
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::resource('fitur', AdminFiturController::class);
+    Route::resource('jenis-toko', JenisTokoController::class);
+    Route::resource('karir', KarirController::class);
+});
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

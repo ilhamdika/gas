@@ -12,6 +12,7 @@ export default function Index ({fiturs, jenisTokos, karirs}) {
 
     const jenisTokoLoop = jenisTokos.slice(0, limit);
     const karirLoop = karirs.slice(0, limit);
+    const fiturLoop = fiturs.slice(0, limit);
     return (
         <>
         
@@ -44,7 +45,7 @@ export default function Index ({fiturs, jenisTokos, karirs}) {
                 <h1 className='text-center text-5xl font-black'>Popular Fitur</h1>
                 <p className='text-center text-1xl mt-1' >Nikmati beberapa fitur yang kami berikan</p>
                 <div className='grid grid-cols-4 mr-15 ml-20'>
-                    {fiturs.map((fitur)=>(
+                    {fiturLoop.map((fitur)=>(
                     <PopularFitur 
                     key={fitur.id}
                     title={fitur.name}
